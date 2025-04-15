@@ -2,7 +2,7 @@ name: Check Content Restrictions
 
 on:
   pull_request:
-    branches: [main] # hoặc branch bạn muốn bảo vệ
+    branches: [master] # hoặc branch bạn muốn bảo vệ
 
 jobs:
   check-files:
