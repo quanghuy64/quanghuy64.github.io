@@ -3,6 +3,7 @@ backend:
   name: github # Sử dụng GitHub làm backend
   repo: quanghuy64/quanghuy64.github.io # !!! THAY THẾ: Tên người dùng/Tên kho chứa GitHub của bạn
   branch: master # !!! THAY THẾ (nếu cần): Tên nhánh chính của bạn (thường là main hoặc master)
+  auth_type: implicit
   # base_url: https://your-custom-domain.com # Bỏ comment và sửa nếu bạn dùng domain riêng
   # auth_endpoint: api/auth # Có thể cần nếu dùng Netlify Identity/Git Gateway nâng cao
 
