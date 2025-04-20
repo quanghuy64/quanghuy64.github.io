@@ -1,0 +1,43 @@
+# Cấu hình Backend: Chỉ định cách CMS kết nối với repo của bạn
+backend:
+  name: github # Sử dụng GitHub làm backend
+  repo: quanghuy64/quanghuy64.github.io # !!! THAY THẾ: Tên người dùng/Tên kho chứa GitHub của bạn
+  branch: master # !!! THAY THẾ (nếu cần): Tên nhánh chính của bạn (thường là main hoặc master)
+  # base_url: https://your-custom-domain.com # Bỏ comment và sửa nếu bạn dùng domain riêng
+  # auth_endpoint: api/auth # Có thể cần nếu dùng Netlify Identity/Git Gateway nâng cao
+
+# Cấu hình Media (Hình ảnh, file tải lên)
+media_folder: "assets/images" # !!! THAY THẾ (nếu cần): Thư mục lưu trữ ảnh trong repo của bạn
+public_folder: "/assets/images" # Đường dẫn công khai để truy cập ảnh trên web
+
+# Cấu hình Collections (Loại nội dung bạn muốn quản lý)
+collections:
+  # Cấu hình cho Bài viết (Posts)
+  - name: "posts" # Tên định danh cho collection (không dấu, không cách)
+    label: "Bài viết" # Tên hiển thị trên giao diện CMS
+    folder: "_posts" # Thư mục chứa các file bài viết Markdown của Jekyll
+    create: true # Cho phép tạo bài viết mới
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Định dạng tên file: Năm-Tháng-Ngày-Tiêu đề không dấu
+    fields: # Các trường (fields) tương ứng với Front Matter trong file Markdown
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" } # Trường layout ẩn, mặc định là 'post'
+      - { label: "Tiêu đề", name: "title", widget: "string" } # Trường tiêu đề bài viết
+      - { label: "Ngày đăng", name: "date", widget: "datetime" } # Trường ngày đăng
+      - { label: "Thẻ (tags)", name: "tags", widget: "list", required: false } # Trường tags (không bắt buộc)
+      - { label: "Danh mục (categories)", name: "categories", widget: "list", required: false } # Trường categories (không bắt buộc)
+      # --- Thêm các trường Front Matter khác của bạn ở đây ---
+      # Ví dụ:
+      # - { label: "Tóm tắt", name: "excerpt", widget: "text", required: false }
+      # - { label: "Ảnh đại diện", name: "thumbnail", widget: "image", required: false }
+      # -----------------------------------------------------
+      - { label: "Nội dung", name: "body", widget: "markdown" } # Trường nội dung chính, dùng trình soạn thảo Markdown
+
+  # Bạn có thể thêm các collection khác ở đây, ví dụ: quản lý trang (pages)
+  # - name: "pages"
+  #   label: "Trang"
+  #   folder: "_pages" # Hoặc thư mục gốc nếu trang nằm ở gốc
+  #   create: true
+  #   fields:
+  #     - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
+  #     - { label: "Tiêu đề", name: "title", widget: "string" }
+  #     - { label: "Permalink", name: "permalink", widget: "string" } # Đường dẫn tĩnh
+  #     - { label: "Nội dung", name: "body", widget: "markdown" }
